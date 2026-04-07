@@ -1185,7 +1185,7 @@ let allTeams = [];
   try {
     const r = await fetch(`${API_BASE}/api/teams`);
     const d = await r.json();
-    allTeams = d.teams || [];
+    allTeams = Array.isArray(d) ? d : (Array.isArray(d?.teams) ? d.teams : []);
 
     // Read team from ?team= query param (set by team.html) OR URL hash fallback
     const params  = new URLSearchParams(window.location.search);
@@ -1488,7 +1488,7 @@ document.querySelectorAll('.ack-block input[type="radio"]').forEach(radio => {
     allowInput: false,
     onReady: function(selectedDates, dateStr, instance) {
       // Make year input easily editable
-      instance.calendarContainer.querySelector('.cur-year').removeAttribute('disabled');
+      instance.calendarContainer?.querySelector('.cur-year')?.removeAttribute('disabled');
     }
   });
 </script>

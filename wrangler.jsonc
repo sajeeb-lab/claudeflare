@@ -3,7 +3,6 @@
   "name": "claudeflare",
   "compatibility_date": "2026-04-07",
   "assets": {
-    "directory": ".",
-    "binding": "ASSETS"
+    "directory": "."
   }
 }
